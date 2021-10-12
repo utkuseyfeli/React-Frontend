@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Router} from '@reach/router';
 import './App.css';
+import Home from './Home/Home';
+import Details from './Details/Details';
+import Connect from './Details/Connect';
+import ConnectTeacher from './Details/ConnectTeacher';
+import ConnectLesson from './Details/ConnectLesson';
+import AddTeacher from './Details/AddTeacher';
+import AddLesson from './Details/AddLesson';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Home path="/"/>
+        <Details path="/getStudents"/>
+        <Details path="/addStudent"/>
+        <Connect path="connect/:id"/>
+        <ConnectTeacher path="connectTeacher/:id"/>
+        <ConnectLesson path="connectLesson/:id"/>
+        <AddTeacher path="/addTeacher"/>
+        <AddLesson path="/addLesson"/>
+      </Router>
     </div>
   );
 }
